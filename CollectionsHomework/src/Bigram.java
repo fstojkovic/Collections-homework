@@ -28,6 +28,23 @@ public class Bigram {
 			System.out.println(entry.getKey() + " " + entry.getValue());
 		}
 
+		String pocetak = "ja";
+
+		for (int i = 0; i < 3; i++) {
+			int maxFi = 0;
+			String bigramMaxFi = "";
+
+			for (Map.Entry<String, Integer> ent : mapa.entrySet()) {
+				if (ent.getKey().startsWith(pocetak.substring(pocetak.length() - 1)) && (maxFi < ent.getValue())) {
+					maxFi = ent.getValue();
+					bigramMaxFi = ent.getKey();
+				}
+			}
+			if (maxFi > 0) {
+				pocetak = pocetak + bigramMaxFi.charAt(1);
+			}
+		}
+		System.out.println(pocetak);
 	}
 
 }
