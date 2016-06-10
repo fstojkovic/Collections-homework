@@ -8,6 +8,7 @@ public class Bigram {
 	public static void main(String[] args) {
 
 		String string = "abbcceeeeeeabcc";
+
 		Map<String, Integer> mapa = new HashMap<>();
 
 		for (int i = 0; i < string.length() - 1; i++) {
@@ -30,7 +31,7 @@ public class Bigram {
 
 		String pocetak = "ja";
 
-		for (int i = 0; i < 3; i++) {
+		spoljana: for (int i = 0; i < 3; i++) {
 			int maxFi = 0;
 			String bigramMaxFi = "";
 
@@ -40,9 +41,12 @@ public class Bigram {
 					bigramMaxFi = ent.getKey();
 				}
 			}
+
 			if (maxFi > 0) {
 				pocetak = pocetak + bigramMaxFi.charAt(1);
-			}
+			} else
+				break spoljana;
+
 		}
 		System.out.println(pocetak);
 	}
